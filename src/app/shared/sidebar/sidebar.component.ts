@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { GifsService } from '../../gifs/services/gifs.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -6,5 +7,12 @@ import { Component } from '@angular/core';
   styles: []
 })
 export class SidebarComponent {
-
+  get historial(){
+    return this.GifsService.historial;
+  }
+  buscar(termino:string){
+    this.GifsService.buscarGifs(termino);
+  }
+  constructor(private GifsService:GifsService){}
+  
 }
